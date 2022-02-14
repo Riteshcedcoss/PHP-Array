@@ -121,6 +121,32 @@ function display2(){
 
 }
 
+function display3(){
+    global $products;
+
+    echo"<table><tr><th>Category</th><th>Subcategory</th><th>ID</th><th>Name</th><th>Brand</th><tr>";
+    foreach($products as $key=>$value){
+
+        foreach($value as $subCat=>$val){
+           
+
+            foreach($val as $i ){
+                if($i["brand"]=="Samsung"){
+                echo"<tr><td>".$key."</td>".
+               " <td>".$subCat."</td>".
+                "<td>".$i["id"]."</td>".
+                "<td>".$i["name"]."</td>".
+                "<td>".$i["brand"]."</td></tr>";
+            }
+               }
+              }
+
+    }
+    echo"</table>";
+
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -136,6 +162,7 @@ function display2(){
     <?php
     display1();
     display2();
+    display3();
     ?>
 </body>
 
