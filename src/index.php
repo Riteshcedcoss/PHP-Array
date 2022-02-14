@@ -79,13 +79,37 @@ function display1(){
     echo"<table><tr><th>Category</th><th>Subcategory</th><th>ID</th><th>Name</th><th>Brand</th><tr>";
     foreach($products as $key=>$value){
 
-        foreach($value as $subk=>$val){
+        foreach($value as $subCat=>$val){
             
 
             foreach($val as $i ){
 
                 echo"<tr><td>".$key."</td>".
-               " <td>".$subk."</td>".
+               " <td>".$subCat."</td>".
+                "<td>".$i["id"]."</td>".
+                "<td>".$i["name"]."</td>".
+                "<td>".$i["brand"]."</td></tr>";
+               }
+              }
+
+    }
+    echo"</table>";
+
+}
+
+function display2(){
+    global $products;
+
+    echo"<table><tr><th>Category</th><th>Subcategory</th><th>ID</th><th>Name</th><th>Brand</th><tr>";
+    foreach($products as $key=>$value){
+
+        foreach($value as $subCat=>$val){
+            if($subCat=="Mobile")
+
+            foreach($val as $i ){
+
+                echo"<tr><td>".$key."</td>".
+               " <td>".$subCat."</td>".
                 "<td>".$i["id"]."</td>".
                 "<td>".$i["name"]."</td>".
                 "<td>".$i["brand"]."</td></tr>";
@@ -111,6 +135,7 @@ function display1(){
 <body>
     <?php
     display1();
+    display2();
     ?>
 </body>
 
